@@ -36,7 +36,7 @@ const createUser = async (req, resp) => {
 const LoginUser = async (req, resp) => {
     const { email, password } = req.body;
 
-    let user = await UserSchema.findOne({ email });
+    let user = await UserSchema.findOne({ email: req.body.email });
     let success = false;
     if (!user) {
         success = false
